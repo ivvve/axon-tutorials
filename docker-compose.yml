@@ -1,0 +1,24 @@
+version: "3.6"
+
+services:
+  axon-server:
+    container_name: axon-server
+    image: axoniq/axonserver
+    ports:
+      - 8024:8024
+      - 8124:8124
+  
+  mysql:
+    container_name: bank-mysql
+    image: mysql:8.0
+    ports:
+      - 3306:3306
+    environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=bank
+  
+  mongodb:
+    container_name: bank-mongodb
+    image: mongo
+    ports:
+      - 27017:27017
